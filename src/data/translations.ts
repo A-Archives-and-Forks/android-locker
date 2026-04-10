@@ -144,9 +144,9 @@ export const translations: Record<Language, Translations> = {
     },
     
     seo: {
-      title: 'BL List',
+      title: 'Android Bootloader 解锁对比 - BL List',
       description: '各大手机厂商的Bootloader解锁、内核开源、保修政策对比。刷机有风险，刷机请注意备份数据。',
-      keywords: 'Android, Bootloader, Unlock, Kernel, Warranty, Manufacturer, Comparison',
+      keywords: '安卓, Bootloader, 解锁, BL解锁, 内核开源, 保修, 手机厂商, 刷机, 对比, Android',
       ogImage: 'https://a.zli.li/og-image.png',
       twitterCard: 'summary_large_image',
       jsonLd: {
@@ -221,7 +221,7 @@ export const translations: Record<Language, Translations> = {
     },
     
     seo: {
-      title: 'BL List',
+      title: 'Android Bootloader Unlock Comparison - BL List',
       description: 'Comparison of Bootloader unlock, kernel source, and warranty policies across manufacturers. Flashing is risky. Please back up your data before proceeding.',
       keywords: 'Android, Bootloader, Unlock, Kernel, Warranty, Manufacturer, Comparison',
       ogImage: 'https://a.zli.li/og-image.png',
@@ -298,7 +298,7 @@ export const translations: Record<Language, Translations> = {
     },
     
     seo: {
-      title: 'BL List',
+      title: 'Android Bootloader अनलॉक तुलना - BL List',
       description: 'मैन्युफैक्चरर में बूटलोडर अनलॉक, कर्नेल सोर्स और वारंटी नीतियों की तुलना। फ्लैशिंग जोखिम भरा है। कृपया फ्लैश करने से पहले अपने डेटा का बैकअप लें',
       keywords: 'एंड्राइड, बूटलोडर, अनलॉक, कर्नेल, वारंटी, मैन्युफैक्चरर, तुलना',
       ogImage: 'https://a.zli.li/og-image.png',

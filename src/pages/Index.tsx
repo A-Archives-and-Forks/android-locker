@@ -79,8 +79,26 @@ const Index: React.FC<IndexProps> = ({ forcedLanguage }) => {
   const hreflangs = [
     { lang: 'zh', url: 'https://a.zli.li/zh/' },
     { lang: 'en', url: 'https://a.zli.li/en/' },
-    { lang: 'hi', url: 'https://a.zli.li/hi/' }
+    { lang: 'hi', url: 'https://a.zli.li/hi/' },
+    { lang: 'x-default', url: 'https://a.zli.li/en/' }
   ];
+  const canonicalUrl = `https://a.zli.li${currentLanguage === 'zh' ? '/' : '/' + currentLanguage + '/'}`;
+
+  const jsonLdSchemas = [
+    seo.jsonLd,
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": seo.title,
+      "description": seo.description,
+      "numberOfItems": manufacturersData.length,
+      "itemListElement": manufacturersData.map((m, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": m.name,
+      }))
+    }
+  ].filter(Boolean);
 
   return (
     <>
@@ -94,11 +112,12 @@ const Index: React.FC<IndexProps> = ({ forcedLanguage }) => {
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
         <meta name="keywords" content={seo.keywords} />
-        <meta property="og:title" content={seo.title + ' - Bootloader Unlock Status'} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={seo.title} />
         <meta property="og:description" content={seo.description + (t.announcement ? ' ' + t.announcement : '')} />
         {seo.ogImage && <meta property="og:image" content={seo.ogImage} />}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={window.location.origin + (currentLanguage !== 'zh' ? '/' + currentLanguage + '/' : '/')} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta name="wechat-card" content="summary_large_image" />
         <meta name="twitter:card" content={seo.twitterCard || 'summary'} />
         <meta name="twitter:title" content={seo.title} />
@@ -107,11 +126,11 @@ const Index: React.FC<IndexProps> = ({ forcedLanguage }) => {
         {hreflangs.map(h => (
           <link rel="alternate" hrefLang={h.lang} href={h.url} key={h.lang} />
         ))}
-        {seo.jsonLd && (
-          <script type="application/ld+json">
-            {JSON.stringify(seo.jsonLd)}
+        {jsonLdSchemas.map((schema, i) => (
+          <script key={i} type="application/ld+json">
+            {JSON.stringify(schema)}
           </script>
-        )}
+        ))}
       </Helmet>
       <div className="min-h-screen bg-gradient-to-br from-android-50 to-white">
         {/* 公告栏 */}
