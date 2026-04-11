@@ -377,7 +377,7 @@ export const manufacturersData: ManufacturerData[] = [
     id: 'realme',
     name: 'Realme',
     logo: '/logos/realme.png',
-    bootloaderUnlock: 'supported',
+    bootloaderUnlock: 'limited',
     kernelSource: 'partial',
     warrantyAfterUnlock: 'voided',
     unlockMethod: { zh: '深度测试资格申请', en: 'Deep testing application', hi: 'गहरा जांच आवेदन' },
